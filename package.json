@@ -1,7 +1,7 @@
 {
   "name": "learning-react-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Server",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -10,7 +10,12 @@
   },
   "author": "Nina Welch",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NinaKWelch/learning-react-backend.git"
+  },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1"
   },
   "devDependencies": {

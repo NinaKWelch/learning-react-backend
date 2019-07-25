@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 app.use(bodyParser.json())
+app.use(cors())
 
 let notes = [
     {
@@ -26,7 +28,7 @@ let notes = [
   ]
 
   app.get('/', (request, response) => {
-    response.send('<h1>Notes Backend</h1>')
+    response.send('<h1>Notes API</h1>')
   })
   
   const generateId = () => {
@@ -78,7 +80,7 @@ let notes = [
     response.status(204).end()
   })  
 
-  const PORT = 3001
+  const PORT = process.env.PORT || 3002
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
   })
