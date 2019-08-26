@@ -2,7 +2,8 @@ module.exports = {
   'env': {
     'commonjs': true,
     'es6': true,
-    'node': true
+    'node': true,
+    'jest': true
   },
   "extends": "airbnb-base",
   'rules': {
@@ -16,7 +17,23 @@ module.exports = {
     ],
     'no-underscore-dangle': [
       'error', 
-      { 'allow': ['_id', '__v'] }
+      { 
+        'allow': [ '_id', '__v' ] 
+      }
+    ],
+    'prefer-destructuring': [
+      'error', 
+      {
+        'array': true,
+        'object': true
+      }, 
+      {
+        'enforceForRenamedProperties': false
+      }
+    ],
+    'comma-dangle': [
+      'error',
+      'never'
     ],
     'no-console': 0
   }
