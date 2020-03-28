@@ -14,7 +14,7 @@ mongoose.connect(url, { useNewUrlParser: true })
 const noteSchema = new mongoose.Schema({
   content: String,
   date: Date,
-  important: Boolean,
+  important: Boolean
 })
 
 const Note = mongoose.model('Note', noteSchema)
@@ -22,7 +22,7 @@ const Note = mongoose.model('Note', noteSchema)
 const note = new Note({
   content: 'Browser can execute only Javascript',
   date: new Date(),
-  important: false,
+  important: false
 })
 
 

@@ -9,13 +9,18 @@ const config = require('./utils/config')
 const notesRouter = require('./controllers/notes')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
+const testingRouter = require('./controllers/tests')
 const logger = require('./utils/logger')
 
 const mongoUrl = config.MONGODB_URI
 
 logger.info('connecting to', mongoUrl)
 
-mongoose.connect(mongoUrl, { useFindAndModify: false, useNewUrlParser: true })
+mongoose.connect(mongoUrl, {
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useNewUrlParser: true
+})
   .then(() => {
     logger.info('connected to MongoDB')
   })
@@ -31,6 +36,10 @@ app.use(middleware.requestLogger)
 app.use('/api/notes', notesRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
+
+if (process.env.NODE_ENV === 'test') {
+  app.use('/api/tests', testingRouter)
+}
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

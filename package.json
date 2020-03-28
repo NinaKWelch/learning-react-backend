@@ -6,12 +6,13 @@
   "scripts": {
     "start": "NODE_ENV=production node index.js",
     "watch": "NODE_ENV=development nodemon index.js",
-    "test": "NODE_ENV=test jest --verbose --runInBand",
     "build:ui": "rm -rf build && cd ../learning-react && npm run build --prod && cp -r build ../learning-react-backend/",
     "deploy": "git push heroku master",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
     "logs:prod": "heroku logs --tail",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "NODE_ENV=test jest --verbose --runInBand",
+    "start:test": "NODE_ENV=test node index.js"
   },
   "jest": {
     "testEnvironment": "node"
@@ -23,21 +24,21 @@
     "url": "git+https://github.com/NinaKWelch/learning-react-backend.git"
   },
   "dependencies": {
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^3.0.8",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "dotenv": "^8.0.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.6.6",
+    "mongoose": "^5.9.6",
     "mongoose-unique-validator": "^2.0.3"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-plugin-import": "^2.18.2",
-    "jest": "^24.8.0",
-    "nodemon": "^1.19.1",
+    "eslint-plugin-import": "^2.20.1",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.4",
     "supertest": "^4.0.2"
   }
 }

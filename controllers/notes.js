@@ -35,7 +35,7 @@ const getTokenFrom = request => {
 }
 
 notesRouter.post('/', async (request, response, next) => {
-  const body = request.body
+  const { body } = request
 
   const token = getTokenFrom(request)
 

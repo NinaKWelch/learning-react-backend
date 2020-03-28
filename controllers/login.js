@@ -5,7 +5,7 @@ const User = require('../models/user')
 
 // eslint-disable-next-line consistent-return
 loginRouter.post('/', async (request, response) => {
-  const body = request.body
+  const { body } = request
 
   const user = await User.findOne({ username: body.username })
   const passwordCorrect = user === null
